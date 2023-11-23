@@ -1,0 +1,58 @@
+<!-- add-edit-users.component.html -->
+<div class="modal-header">
+  <h5 class="modal-title">{{title}}</h5>
+  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeModal()"></button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="form" >
+    <fieldset>
+      <div class="form-group">
+        <label for="exampleInputEmail1" class="form-label mt-4">Nombres</label>
+        <input formControlName="firstName" type="email" class="form-control" id="exampleInputEmail1"
+          aria-describedby="emailHelp" placeholder="Nombres">
+        <span *ngIf="form.get('firstName')?.hasError('required') && form.get('firstName')?.touched">
+          El campo nombres <strong>requerido</strong>
+        </span>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1" class="form-label mt-4">Apellidos</label>
+        <input formControlName="lastName" type="email" class="form-control" id="exampleInputEmail1"
+          aria-describedby="emailHelp" placeholder="Apellidos">
+        <span *ngIf="form.get('lastName')?.hasError('required') && form.get('lastName')?.touched">
+          El campo apellidos de usuario es <strong>requerido</strong>
+        </span>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1" class="form-label mt-4">Número de identificación</label>
+        <input formControlName="identificationNumber" type="email" class="form-control" id="exampleInputEmail1"
+          aria-describedby="emailHelp" placeholder="Apellidos">
+        <span *ngIf="form.get('identificationNumber')?.hasError('required') && form.get('identificationNumber')?.touched">
+          El campo número de identificación es <strong>requerido</strong>
+        </span>
+      </div>
+      <div class="form-group">
+        <label for="exampleSelect1" class="form-label mt-4">Tipo identificación</label>
+        <select formControlName="typeIdentification" class="form-select">
+          <option>CC</option>
+          <option>TI</option>
+          <option>CE</option>
+          <option>PP</option>
+        </select>
+        <span *ngIf="form.get('typeIdentification')?.hasError('required') && form.get('typeIdentification')?.touched">
+          El campo tipo de identificación  es<strong>requerido</strong>
+        </span>
+      </div> 
+      <div class="form-group">
+        <label for="exampleInputEmail1" class="form-label mt-4">Email</label>
+        <input formControlName="email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Apellidos">
+        <span *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched">
+          El campo email es <strong>requerido</strong>
+        </span>
+      </div>
+    </fieldset>
+  </form>
+</div>
+<div class="modal-footer">
+  <button [disabled]="form.invalid" type="submit" class="btn btn-primary" (click)="add_edit_person()">Save changes</button>
+  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeModal()">Close</button>
+</div>

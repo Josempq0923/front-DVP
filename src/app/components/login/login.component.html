@@ -1,0 +1,52 @@
+<section class="vh-100" style="background: #64437d;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card shadow-lg" style="border-radius: 1rem;background: rgba(190, 177, 153, 0.4);">
+            <div class="card-body p-5">
+                <form [formGroup]="formLogin" (ngSubmit)="Login()">
+                <div class="text-center mb-4">
+                  <img src="assets/img/image.jpg" alt="Logo" width="200" height="auto">
+                </div>
+  
+                <div class="form-floating mb-4">
+                  <input type="email" formControlName="user" class="form-control" id="floatingInput" placeholder="name@example.com">
+                  <label for="floatingInput">Usuario</label>
+                  <span *ngIf="formLogin.get('user')?.hasError('required') && formLogin.get('user')?.touched">
+                    El campo usuario <strong>requerido</strong>
+                  </span>
+                </div>
+  
+                <div class="form-floating mb-4">
+                  <input type="password" formControlName="password" class="form-control" id="floatingPassword" placeholder="Password">
+                  <label for="floatingPassword">Contraseña</label>
+                  <span *ngIf="formLogin.get('password')?.hasError('required') && formLogin.get('password')?.touched">
+                    El campo contraseña <strong>requerido</strong>
+                  </span>
+                </div>
+  
+                <div class="row mb-4">
+                  <div class="col-md-6 d-flex justify-content-center">
+                    <div class="form-check mb-3 mb-md-0">
+  
+                    </div>
+                  </div>
+  
+                  <div class="col-md-6 d-flex justify-content-center">
+                    <a href="#!"></a>
+                  </div>
+                </div>
+  
+                <div class="d-grid gap-2">
+                  <button [disabled]="formLogin.invalid" class="btn btn-primary btn-block" type="submit">
+                    Iniciar Sesión
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

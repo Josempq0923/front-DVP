@@ -1,0 +1,39 @@
+<!-- add-edit-users.component.html -->
+<div class="modal-header">
+  <h5 class="modal-title">{{title}}</h5>
+  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeModal()"></button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="form" >
+    <fieldset>
+      <div class="form-group">
+        <label for="exampleInputEmail1" class="form-label mt-4">Nombre de usuario</label>
+        <input formControlName="userName" type="email" class="form-control" id="exampleInputEmail1"
+          aria-describedby="emailHelp" placeholder="Nombre de usuario">
+        <span *ngIf="form.get('userName')?.hasError('required') && form.get('userName')?.touched">
+          El campo nombre de usuario es <strong>requerido</strong>
+        </span>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1" class="form-label mt-4">Contraseña</label>
+        <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1"
+          placeholder="Password" autocomplete="off">
+        <span *ngIf="form.get('password')?.hasError('required') && form.get('password')?.touched">
+          El campo contraseña <strong>requerido</strong>
+        </span>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1" class="form-label mt-4">Confirmar contraseña</label>
+        <input formControlName="confirmPassword" type="password" class="form-control" id="exampleInputPassword1"
+          placeholder="Password" autocomplete="off">
+        <span *ngIf="form.get('confirmPassword')?.hasError('required') && form.get('confirmPassword')?.touched">
+          El campo confirmar contraseña <strong>requerido</strong>
+        </span>
+      </div>
+    </fieldset>
+  </form>
+</div>
+<div class="modal-footer">
+  <button [disabled]="form.invalid" type="submit" class="btn btn-primary" (click)="add_edit_user()">Save changes</button>
+  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeModal()">Close</button>
+</div>

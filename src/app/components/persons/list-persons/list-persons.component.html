@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="title ">
+    <h4>Lista de personas</h4>
+    <button type="button" class="btn btn-primary" (click)="loadPeople()">Refresh</button>
+    <button type="button" class="btn btn-primary" (click)="openModal()">Agregar Persona</button>    
+  </div>
+  <br>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nombres</th>
+        <th scope="col">Apellidos</th>
+        <th scope="col">Nombre Completo</th>
+        <th scope="col">Número de Identificación</th>
+        <th scope="col">Email</th>
+        <th scope="col">Fecha Registro</th>
+        <th scope="col">Tipo Identificación</th>
+        <th scope="col">Identificación Completa</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listPersons" class="table-info">
+        <td>{{ item.id }}</td>
+        <td>{{ item.firstName }}</td>
+        <td>{{ item.lastName }}</td>
+        <td>{{ item.fullName }}</td>
+        <td>{{ item.identificationNumber }}</td>
+        <td>{{ item.email }}</td>
+        <td>{{ item.registerDate }}</td>
+        <td>{{ item.typeIdentification }}</td>
+        <td>{{ item.fullIdentification }}</td>
+        <td>
+          <button type="button" class="btn btn-primary btn-sm" (click)="openModal()">Editar</button>
+          <button type="button" class="btn btn-secondary btn-sm ms-5" (click)="deletePerson(item.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,30 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="title ">
+    <h4>Lista de usuarios</h4>
+    <button type="button" class="btn btn-primary" (click)="loadUsers()">Refresh</button>
+    <button type="button" class="btn btn-primary" (click)="openModal()">Agregar usuario</button>
+  </div>
+  <br>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nombre usuario</th>
+        <th scope="col">Fecha registro</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listUsers" class="table-info">
+        <td>{{ item.id }}</td>
+        <td>{{ item.userName }}</td>
+        <td>{{ item.registerDate }}</td>
+        <td>
+          <button type="button" class="btn btn-primary btn-sm" (click)="openModal(item)">Editar</button>
+          <button type="button" class="btn btn-secondary btn-sm ms-2" (click)="deleteUser(item.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
